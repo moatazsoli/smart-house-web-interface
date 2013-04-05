@@ -30,6 +30,9 @@ downloaded the files of the App in) then click open.
 to view it. Clicking Browse simply loads (or reloads) http://localhost:8080/ in 
 your default web browser.
 
+
+To View a live web version of this please visit : 
+http://smarthouseiot.appspot.com/
 -------------------
 If you're not using Google App Engine Launcher, start the web server with the 
 following command, giving it the path to the directory that you download the app in:
