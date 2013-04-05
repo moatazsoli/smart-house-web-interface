@@ -1,0 +1,83 @@
+{% extends "bootstrap-starter.html" %}
+
+{% block head_include %}<link href="/css/chart.css" rel="stylesheet">{% endblock %}
+
+
+
+{% block header %}
+<div class="hero-unit">
+    <h1>Weather Conditions</h1>
+</div>
+    
+{% endblock %}
+{% block main %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Metric</th>
+        <th>Current Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Temperature</td>
+        <td id="tempVal"></td>
+
+    </tr>
+    <tr>
+        <td>Proximity</td>
+        <td id="proxVal"></td>
+    </tr>
+    <tr>
+        <td>Ambient</td>
+        <td id="ambVal"></td>
+    </tr>
+    <tr>
+        <td>Humidity</td>
+        <td id="humVal"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="boxContainer clearfix">
+
+<div class="chart">
+<div id="chartdiv" style="height:300px;width:400px; "></div>
+    <div class="btn-group">
+        <button class="btn" id="tempLast10" data-id="temperature">Last 10</button>
+        <button class="btn" id="tempLast7" data-id="temperature">Last 7 Days</button>
+        <button class="btn" id="tempLast12" data-id="temperature">Last 12 Months</button>
+    </div>
+</div>
+
+<div class="chart">
+    <div id="chartdiv2" style="height:300px;width:400px; "></div>
+    <div class="btn-group">
+        <button class="btn" id="proxLast10" data-id="proximity">Last 10</button>
+        <button class="btn" id="proxLast7" data-id="proximity">Last 7 Days</button>
+        <button class="btn" id="proxLast12" data-id="proximity">Last 12 Months</button>
+    </div>
+</div>
+
+<div class="chart">
+    <div id="chartdiv3" style="height:300px;width:400px; "></div>
+    <div class="btn-group">
+        <button class="btn" id="ambLast10" data-id="ambient">Last 10</button>
+        <button class="btn" id="ambLast7" data-id="ambient">Last 7 Days</button>
+        <button class="btn" id="ambLast12" data-id="ambient">Last 12 Months</button>
+    </div>
+</div>
+
+<div class="chart">
+    <div id="chartdiv4" style="height:300px;width:400px; "></div>
+    <div class="btn-group">
+        <button class="btn" id="humLast10" data-id="humidity">Last 10</button>
+        <button class="btn" id="humLast7" data-id="humidity">Last 7 Days</button>
+        <button class="btn" id="humLast12" data-id="humidity">Last 12 Months</button>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="/js/chartFile.js"></script>
+{% endblock scripts %}

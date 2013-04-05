@@ -1,0 +1,47 @@
+.boxContainer{
+    height: auto;
+}
+
+.chart{
+    float: left;
+    min-height: 150px;
+    width: 400px;
+    display: block;
+    padding: 60px;
+    padding-bottom: 0px;
+    padding-top: 15px;
+    text-align: center;
+}
+/* I would put this at the top of the page, and minimise the newlines :) if you want to remove the "." (dot) then use this  content: "\00A0"; which puts a whitespace,  */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+.btn-group {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+    padding: 8px;
+}
+
+
+
+

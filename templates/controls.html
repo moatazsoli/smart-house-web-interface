@@ -1,0 +1,101 @@
+{% extends "bootstrap-starter.html" %}
+{% block header %}
+    <div class="hero-unit">
+        <h1>Control House Appliances</h1>
+    </div>
+        <script src="https://s3.amazonaws.com/codiqa-cdn/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+{% endblock %}
+
+{% block main %}
+
+    <div data-role="content">
+        <h2>Desk Lamp switch</h2>
+        <img src="http://blog.homestars.com/wordpress/wp-content/uploads/2011/08/desk-lamp.jpg" alt="Smiley face" width="100" height="100">
+        <select name="toggleswitch1" id="toggleswitch2" data-theme="" data-role="slider" onchange="javascript:handleSelect(this)">
+            <option value="off">Off</option>
+            <option value="on">On</option>
+        </select>
+    </div>
+    <hr>
+
+    <div data-role="content">
+        <h2>Fan switch</h2>
+        <img src="http://www.ecco-products.com/cms/upload/imagenes/table-fan.jpg" alt="Smiley face" width="100" height="100">
+                <select name="toggleswitch1" id="toggleswitch1" data-theme="" data-role="slider" onchange="javascript:handleSelect1(this)">
+                    <option value="off">Off</option>
+                    <option value="on">On</option>
+                </select>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+    <script>
+
+        function LightsetON() {
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify({ "token":610526241, "sensor":"9" , "value": "H", "destination":"3"}),
+                dataType: 'json',
+                success: function(data){
+                    alert("success");
+                },
+                type: 'POST',
+                url: '/posting'
+            });}
+
+        function LightsetOFF() {
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify({ "token":610526241, "sensor":"9" , "value": "L", "destination":"3"}),
+                dataType: 'json',
+                success: function(data){
+                    alert("success");
+                },
+                type: 'POST',
+                url: '/posting'
+            });}
+        function FansetON() {
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify({ "token":610526241, "sensor":"11" , "value": "H", "destination":"3"}),
+                dataType: 'json',
+                success: function(data){
+                    alert("success");
+                },
+                type: 'POST',
+                url: '/posting'
+            });}
+
+        function FansetOFF() {
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify({ "token":610526241, "sensor":"11" , "value": "L", "destination":"3"}),
+                dataType: 'json',
+                success: function(data){
+                    alert("success");
+                },
+                type: 'POST',
+                url: '/posting'
+            });}
+
+        function handleSelect(elm)
+        {
+            if(elm.value== "on")
+            {
+                LightsetON();
+            }else{
+                LightsetOFF();
+            }
+        }
+        function handleSelect1(elm)
+        {
+            if(elm.value== "on")
+            {
+                FansetON();
+            }else{
+                FansetOFF();
+            }
+        }
+    </script>
+{% endblock scripts %}

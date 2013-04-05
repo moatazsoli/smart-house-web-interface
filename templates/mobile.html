@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Smart House</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/js/libs/jquery-1.7.1.js"></script>
+        <script src="/js/libs/jquery.mobile-1.1.0.js"></script>
+        <link href="css/src/css/jquery.mobile.structure-1.1.0.css" rel="stylesheet">
+        <link href="css/src/css/jquery.mobile.theme-1.1.0.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div data-role="page" id="Home">
+            <div data-role="header">
+                <h1>SMART HOUSE</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a data-role="button" class="ui-btn-active" id="Home">Home</a>
+                        </li>
+                        <li>
+                            <a data-role="button" href="#Monitor">Monitor</a>
+                        </li>
+                        <li>
+                            <a data-role="button" href="#control">Control</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-inset="true"></ul>
+                <strong>Welcome To Your Smart House !</strong>
+                <img src="http://www.freestockphotos.biz/pictures/14/14963/Illustration+of+a+red+house.png"
+                width="200" height="200">
+            </div>
+        </div>
+        <div data-role="page" id="control">
+            <div data-role="header">
+                <h1>SMART HOUSE</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a data-role="button" id="Home" href="#Home">Home</a>
+                        </li>
+                        <li>
+                            <a data-role="button" href="#Monitor">Monitor</a>
+                        </li>
+                        <li>
+                            <a data-role="button" class="ui-btn-active">Control</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <a href="#light">Light Control</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="light">
+            <div data-role="header">
+                <h1>SMART HOUSE</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a data-role="button" id="Home" href="#Home">Home</a>
+                        </li>
+                        <li>
+                            <a data-role="button" href="#Monitor">Monitor</a>
+                        </li>
+                        <li>
+                            <a data-role="button" class="ui-btn-active" href="#control">Control</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h1>Desk Lamp Switch</h1>
+                <select data-role="slider" onchange="javascript:handleSelect(this)">
+                    <option value="off">Off</option>
+                    <option value="on">On</option>
+                </select>
+            </div>
+            <div data-role="content">
+                <h1>Fan Switch</h1>
+                <select data-role="slider" onchange="javascript:handleSelect1(this)">
+                    <option value="off">Off</option>
+                    <option value="on">On</option>
+                </select>
+            </div>
+        </div>
+        <script type="text/javascript">
+        function LightsetON() {
+			$.ajax({
+   			 contentType: 'application/json',
+   			 data: JSON.stringify({ "token":610526241, "sensor":"9" , "value": "H", "destination":"3"}),
+   			 dataType: 'json',
+    			success: function(data){
+   			     alert("success");
+ 			   },
+  			  type: 'POST',
+  			  url: '/posting'
+			});}
+
+			function LightsetOFF() {
+			$.ajax({
+  			  contentType: 'application/json',
+  			  data: JSON.stringify({ "token":610526241, "sensor":"9" , "value": "L", "destination":"3"}),
+  			  dataType: 'json',
+  			  success: function(data){
+   			     alert("success");
+  			  },
+  			  type: 'POST',
+  			  url: '/posting'
+			});}
+        function FansetON() {
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify({ "token":610526241, "sensor":"11" , "value": "H", "destination":"3"}),
+                dataType: 'json',
+                success: function(data){
+                    alert("success");
+                },
+                type: 'POST',
+                url: '/posting'
+            });}
+
+        function FansetOFF() {
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify({ "token":610526241, "sensor":"11" , "value": "L", "destination":"3"}),
+                dataType: 'json',
+                success: function(data){
+                    alert("success");
+                },
+                type: 'POST',
+                url: '/posting'
+            });}
+		function handleSelect(elm)
+		{
+			if(elm.value== "on")
+			{
+                LightsetON();
+			}else{
+                LightsetOFF();
+			}
+		}
+        function handleSelect1(elm)
+        {
+            if(elm.value== "on")
+            {
+                FansetON();
+            }else{
+                FansetOFF();
+            }
+        }
+		</script>
+        
+        <div data-role="page" id="Monitor">
+            <div data-role="header">
+                <h1>SMART HOUSE</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a data-role="button" id="Home" href="#Home">Home</a>
+                        </li>
+                        <li>
+                            <a data-role="button" class="ui-btn-active" href="#Monitor">Monitor</a>
+                        </li>
+                        <li>
+                            <a data-role="button" href="#control">Control</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <a href="#weather">Weather Conditions</a>
+                    </li>
+                    <li>
+                        <a>Users</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="weather">
+            <div data-role="header">
+                <h1>SMART HOUSE</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a data-role="button" id="Home" href="#Home">Home</a>
+                        </li>
+                        <li>
+                            <a data-role="button" class="ui-btn-active" href="#Monitor">Monitor</a>
+                        </li>
+                        <li>
+                            <a data-role="button" href="#control">Control</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h2>Weather Conditions</h2>
+                <span></span>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <h4>Temperature</h4>
+                    </div>
+                    <div class="ui-block-b">
+                        <h4>0</h4>
+                    </div>
+                    <div class="ui-block-a">
+                        <h4>Ambient</h4>
+                    </div>
+                    <div class="ui-block-b">
+                        <h4>0</h4>
+                    </div>
+                    <div class="ui-block-a">
+                        <h4>proximity</h4>
+                    </div>
+                    <div class="ui-block-b">
+                        <h4>0</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//common/templateaddons.py=utf-8
+encoding//handlers/baserequesthandler.py=utf-8
+encoding//handlers/main.py=utf-8
+encoding//mc/cache.py=utf-8
+encoding//tools/common.py=utf-8
+encoding//tools/decorators.py=utf-8
+encoding/app.py=utf-8
+encoding/models.py=utf-8
+encoding/routes.py=utf-8
+encoding/services.py=utf-8
+encoding/settings.py=utf-8

@@ -1,0 +1,37 @@
+{% extends "bootstrap-starter.html" %}
+
+{% block header %}
+    <div class="hero-unit">
+        <h1>Users</h1>
+        <meta http-equiv="Refresh" content="3">
+
+    </div>
+{% endblock %}
+{% block main %}
+    {% if rf_users %}
+        <table border="4" bordercolor="323232" style="background-color:FFFFCC" width="1000" cellpadding="3" cellspacing="3">
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Status</th>
+            </tr>
+            {% for rf_user in rf_users %}
+                <tr>
+                    <td align="center">{{ rf_user.name }}</td>
+                    <td align="center">{{ rf_user.id }}</td>
+                    <td align="center">{{ rf_user.status }}</td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+    {% else %}
+        No registered users
+    {% endif %}
+
+{% endblock %}
+{% block scripts %}
+
+{% endblock scripts %}
+
+

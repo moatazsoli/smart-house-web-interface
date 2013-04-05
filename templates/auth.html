@@ -1,0 +1,30 @@
+{% extends "bootstrap-starter.html" %}
+
+{% block head_include %}<link href="/css/chart.css" rel="stylesheet">{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block main %}
+
+    <h1>Login</h1>
+
+    {% if failed %}
+        <strong>Login failed!</strong> Check your credentials and try again.
+    {% endif %}
+    <form class="form" action= "/auth" method="POST">
+        <label for="username">Username</label>
+        <input type="text" value="{{ username }}" name="username"/>
+        <label for="password">Password</label>
+        <input type="password" name="password"/>
+        <button type="submit" class="btn">Login</button>
+    </form>
+    <a href="/forgot">Forgot password</a>
+
+
+
+{% endblock %}
+{% block scripts %}
+
+{% endblock scripts %}

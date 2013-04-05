@@ -1,0 +1,67 @@
+{% extends "bootstrap-starter.html" %}
+
+{% block header %}
+<div class="hero-unit">
+    <h1>Welcome !</h1>
+    <h1>To Your Smart House&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/house.png" height="250" width="250"></h1>
+</div>
+    
+{% endblock %}
+
+{% block main %}
+    {% if is_testenv%}
+    <div class="alert">
+        <strong>ALERT</strong>: you are currently using the development environment
+    </div>
+{% endif %}
+    <div class="row">
+        <div class="span9">
+            <h2>What is a Smart House?</h2>
+            <p>
+                A smart house is a house that has highly advanced automatic systems for lighting,
+                 temperature control, multi-media, security, window and door operations, and many other functions.
+            </p>
+        </div>
+        <div class="span1">
+            <a rel="nofollow" class="twitter-share-button" 
+               href="http://twitter.com/share" 
+               data-count="vertical"
+               data-via="alchemycs"
+               data-text="Checking out App Engine Essence: get up and running on #appengine quickly, while still looking stylish"></a> 
+        </div> 
+        <div class="span1"> 
+            <g:plusone size="tall"></g:plusone> 
+        </div>     
+        <div class="span1"> 
+            <fb:like href="" send="false" layout="box_count" width="40" show_faces="false" font=""></fb:like> 
+            <div id="fb-root"></div> 
+        </div> 
+    </div>
+    
+    <hr/>
+    <div class="row">
+        <div class="span6">
+            <h2>What does it include?</h2>
+            <div class="row">
+            <div class="span3">
+                <ul> 
+                    <li class="icon-ok">All house devices are linked.</li>
+                    <li class="icon-ok">Different sensors in the house provide data about the current conditions which are stored in the cloud.</li>
+                    <li class="icon-ok">These readings can be easily accessed through a mobile or web application.</li>
+                    <li class="icon-ok">Remotely adjusting/controlling different devices using your cell phone, tablet or laptop.</li>
+                    <li class="icon-ok">Receive notifications for some sensor readings specified by the user</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+    <hr/>
+    {% if prefs %}
+    <h2>Welcome, you are now logged in {{ prefs.nickname }}</h2>
+    <hr/>
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+
+{% endblock scripts %}
